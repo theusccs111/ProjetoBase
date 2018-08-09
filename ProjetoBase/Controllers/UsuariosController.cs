@@ -19,15 +19,15 @@ namespace ProjetoBase.Controllers
         private readonly IUsuarioRepositorio _usuario;
 
         // GET: Usuarios
-        public async Task<ActionResult> IndexAsync()
+        public async Task<ActionResult> Index()
         {
             return View(await _usuario.GetAllAsync());
         }
 
         // GET: Usuarios/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            return View(_usuario.GetByIdAsync(id));
+            return View(await _usuario.GetByIdAsync(id));
         }
 
         // GET: Usuarios/Create
@@ -53,7 +53,7 @@ namespace ProjetoBase.Controllers
         }
 
         // GET: Usuarios/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
             if (id == null)
             {
@@ -61,7 +61,7 @@ namespace ProjetoBase.Controllers
             }
             
            
-            return View(_usuario.GetByIdAsync(id));
+            return View(await _usuario.GetByIdAsync(id));
         }
 
         // POST: Usuarios/Edit/5
@@ -80,7 +80,7 @@ namespace ProjetoBase.Controllers
         }
 
         // GET: Usuarios/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
             if (id == null)
             {
@@ -88,7 +88,7 @@ namespace ProjetoBase.Controllers
             }
 
 
-            return View(_usuario.GetByIdAsync(id));
+            return View(await _usuario.GetByIdAsync(id));
         }
 
         // POST: Usuarios/Delete/5
